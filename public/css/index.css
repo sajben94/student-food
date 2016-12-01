@@ -1,0 +1,46 @@
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    background:#0ad;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+    
+#fixedheight {
+    table-layout: fixed;
+}
+
+.fixed-panel {
+    min-height: 145px;
+    max-height: 145px;
+}
+
+#fixedheight td {
+    height: 20px;
+    overflow: hidden;
+    width: 25%;
+}
+    
+.logo{
+    font-weight: 900;
+    font-size: 22px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+        
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
