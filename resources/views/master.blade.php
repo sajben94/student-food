@@ -7,7 +7,9 @@
     <title>@yield('title', 'Stravovaci system')</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ URL::asset('css/index.css') }}" type="text/css" />
+    
 </head>
 
 
@@ -21,10 +23,10 @@
                     <li><a href=" {{ URL::route('home') }} ">Home</a></li>
                     <li><a href="{{ URL::route('menu') }}">Menu</a></li>
                     <li><a href=" {{ URL::route('order') }} ">Orders</a></li>
+                    <li><a href=" {{ URL::route('showmeals') }} ">Show all meals</a></li>
                     @if (Auth::check())
                     @if ($user->admin)
                         <li><a href=" {{ URL::route('admin') }} ">Administracia</a></li>
-                        <li><a href=" {{ URL::route('editmeals') }} ">Edit Meals</a></li>
                     @endif
                         <li><a href="#">{{ $user->name }}  ({{ $user->wallet }}€)</a></li>
                         <li><a href="{{ URL::route('logout') }}">Logout</a></li>

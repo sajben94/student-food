@@ -34,9 +34,6 @@ class PageController extends Controller{
         return view('home');
     }
     
-    public function getTime(){
-        
-    }
     
     public function getEditMeals(){
         return view('editmeals');
@@ -71,8 +68,8 @@ class PageController extends Controller{
     }
     
     public function getMenu(){
-        $menu = Menu::all();
-        return view('meals', ['menu' => $menu]); 
+        $menu = Menu::orderBy('day_in_week')->get();
+        return view('showmeals', ['menu' => $menu]); 
     }
     
     public function getMenuid($id){
@@ -86,6 +83,33 @@ class PageController extends Controller{
     
     public function getLogout(){
         Auth::logout();
+    }
+    
+    public function getDelete($id){
+        $menu = Menu::find($id);
+        $menu->delete();
+        return redirect()->action('PageController@getMenu');
+    }
+    
+    public function getUpdateForm($id){
+        $menu = Menu::find($id);
+        return view("update", ['menu' => $menu]);
+    }
+    
+    public function postUpdate($id, Request $request){
+        $soup = $request->input('soup');
+        $name = $request->input('name');
+        $price = $request->input('price');
+        $day_in_week = $request->input('day_in_week');
+        $about = $request->input('about');
+        
+        $menu = Menu::where("id", "=", $id)->first();
+        $menu->update(["soup" => $soup,
+            "name" => $name,
+            "price" => $price,
+            "day_in_week" => $day_in_week,
+            "about" => $about]);
+    return redirect()->action('PageController@getMenu');
     }
     
     public function postPayment(Request $request){
@@ -113,7 +137,6 @@ class PageController extends Controller{
         return redirect()->action('PageController@getOrder');
         
     }
-    
     
     public function postDelOrder(Request $request){
         $user_id = $request->input('user_id');

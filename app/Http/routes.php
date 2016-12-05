@@ -15,11 +15,19 @@ Route::get('/', ['as' => 'home', 'uses' => 'PageController@getHome']);
 Route::get('order', ['as' => 'order', 'uses' => 'PageController@getOrder']);
 Route::get('menu/{id}', ['as' => 'menu', 'uses' => 'PageController@getMenuid']);
 
-Route::get('menu', ['as' => '1', 'uses' => 'PageController@getMenu']);
+Route::get('showmeals', ['as' => 'showmeals', 'uses' => 'PageController@getMenu']);
+
+Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'PageController@getDelete']);
+
+Route::get('updateform/{id}', ['as' => 'updateform', 'uses' => 'PageController@getUpdateForm']);
+
+
 
 Route::get('admin', ['as' => 'admin', 'uses' => 'PageController@getAdmin']);
 Route::get('editmeals', ['as' => 'editmeals', 'uses' => 'PageController@getEditMeals']);
 
+
+Route::post('update/{id}', ['as' => 'update', 'uses' => 'PageController@postUpdate']);
 Route::post('editmeals', ['as' => 'editmeals', 'uses' => 'PageController@postEditMeals']);
 Route::post('add-order',  ['as' => 'add-order', 'uses' =>'PageController@postAddOrder']);
 Route::post('del-order',  ['as' => 'del-order', 'uses' =>'PageController@postDelOrder']);
