@@ -27,8 +27,26 @@
                                         <input type="text" name="price" class="form-control" value="{{ $menu->price }}">
                                     </div>
                                     <div class="form-group">
-                                        Den v tyzni
-                                        <input type="text" name="day_in_week" class="form-control" value="{{ $menu->day_in_week }}">
+                                        Den
+                                        <select name="day_in_week" class="selectpicker" value="{{ $menu->day_in_week }}">
+                                            @for ($i=1; $i<8; $i++)
+                                                @if ($i == $menu->day_in_week)
+                                                    <option selected value="$i">{{ $week[$i]}}</option>
+                                                @else
+                                                    <option value="$i">{{ $week[$i]}}</option>
+                                                @endif
+                                            @endfor
+                                            
+                                            <!--<option value="1">Nedela</option>-->
+                                            <!--<option value="2">Pondelok</option>-->
+                                            <!--<option value="3">Utorok</option>-->
+                                            <!--<option value="4">Streda</option>-->
+                                            <!--<option value="5">Stvrtok</option>-->
+                                            <!--<option value="6">Piatok</option>-->
+                                            <!--<option value="7">Sobota</option>-->
+                                        </select>
+                                        
+                                        
                                     </div>
                                     <div class="form-group">
                                         Opis

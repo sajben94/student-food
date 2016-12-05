@@ -28,7 +28,15 @@
                                     </div>
                                     <div class="form-group">
                                         Den v tyzni
-                                        <input type="text" name="day_in_week" class="form-control">
+                                        <select name="day_in_week" class="selectpicker">
+                                            <option value="1">Nedela</option>
+                                            <option value="2">Pondelok</option>
+                                            <option value="3">Utorok</option>
+                                            <option value="4">Streda</option>
+                                            <option value="5">Stvrtok</option>
+                                            <option value="6">Piatok</option>
+                                            <option value="7">Sobota</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         Opis

@@ -4,7 +4,7 @@
   <div class="col-lg-12">
       <select  id= 'date_picker' name="date" class="selectpicker">
         @foreach ($days as $day)
-          <option value="{{ $day }}">{{ $day }} | {{ date("w",strtotime($day))+1 }}</option>
+          <option value="{{ $day }}">{{ $day }} | {{ $week[date("w",strtotime($day))+1] }}</option>
         @endforeach
       </select>
     </form>

@@ -26,7 +26,7 @@
             <tbody>
               @foreach ($menu as $m)
                 <tr>
-                  <td>{{$m->day_in_week}}</td>
+                  <td>{{ $week[$m->day_in_week] }}</td>
                   <td>{{$m->name}}</td>
                   <td>{{$m->soup}}</td>
                   <td>{{$m->price}}</td>

@@ -16,7 +16,17 @@ use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller{
     
+    
+    
     public function __construct(){
+            $week = ['1' => "Nedela",
+                '2' => "Pondelok",
+                '3' => "Utorok",
+                '4' => "Streda",
+                '5' => "Stvrtok",
+                '6' => "Piatok",
+                '7' => "Sobota"];
+                
         $user = Auth::user();
         $days = [];
         for ($i = 0; $i<7;$i++){
@@ -26,8 +36,8 @@ class PageController extends Controller{
 
         //$nav_links = ['/' => 'Home', 'menu' => 'Menu', 'order' => 'Order'];
         view()->share('user',$user);
-        view()->share('tomorrow',$days[1]);
         view()->share('days',$days);
+        view()->share('week',$week);
     }
     
     public function getHome(){
@@ -73,6 +83,15 @@ class PageController extends Controller{
     }
     
     public function getMenuid($id){
+        $week = ['1' => "Nedela",
+                '2' => "Pondelok",
+                '3' => "Utorok",
+                '4' => "Streda",
+                '5' => "Stvrtok",
+                '6' => "Piatok",
+                '7' => "Sobota"];
+
+                
         if ($id =="{id}"){
             $id = 1+ date("w",strtotime(Carbon::today()));
         }
